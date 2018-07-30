@@ -3,12 +3,14 @@ package com.react.example.cardatabase.domain;
 import com.react.example.cardatabase.domain.entity.Car;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CarRepository extends CrudRepository<Car, Long> {
 
-    @Query(value = "select * from car c where c.brand = ?1", nativeQuery = true)
+    //@Query(value = "select * from car c where c.brand = ?1", nativeQuery = true)
     List<Car> findByBrand(String brand);
 
     List<Car> findByColor(String color);
@@ -19,6 +21,6 @@ public interface CarRepository extends CrudRepository<Car, Long> {
 
     List<Car> findByBrandOrColor(String brand, String color);
 
-    List<Car> findByBrandOrderByYearAsc(String brand);
+    //List<Car> findByBrandOrderByYearAsc(String brand);
 
 }

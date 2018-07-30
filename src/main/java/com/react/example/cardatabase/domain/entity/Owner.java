@@ -1,5 +1,7 @@
 package com.react.example.cardatabase.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,8 +15,12 @@ public class Owner {
     private String firstName, lastName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonIgnore
     private List<Car> cars;
 
+    public Owner() {
+
+    }
 
     public Owner(String firstName, String lastName) {
         this.firstName = firstName;
