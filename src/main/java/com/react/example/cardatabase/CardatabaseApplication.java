@@ -62,7 +62,7 @@ public class CardatabaseApplication {
 					new User("user", pass, "USER")
 			);
 			userRepository.save(
-					new User("admin", "admin", "ADMIN")
+					new User("admin", encoder.encode("admin"), "ADMIN")
 			);
 
 		};
